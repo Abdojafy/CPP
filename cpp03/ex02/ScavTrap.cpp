@@ -48,7 +48,6 @@ void ScavTrap::attack(const std::string& target)
 	}
 	else
 	{
-		hit_points -= attack_damage;
 		energy_points--;
 		std::cout << "ScavTrap " + name + " attacks " + target + ", causing " << attack_damage << " points of damage !" << std::endl;
 	}
@@ -66,9 +65,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap is now in Gatekeeper mode" << std::endl;
+	if ((this->get_energy_points() > 0) && (this->get_hit_points() > 0))
+		std::cout << "ScavTrap " << this->get_name() << " now in Gatekeeper mode" << std::endl;
 }
 
+void    ScavTrap::status()
+{
+	if ((this->get_energy_points() <= 0) || (this->get_hit_points() <= 0))
+		std::cout << "ScavTrap " << this->get_name() << " is died !" << std::endl;
+    else
+		std::cout << "ScavTrap " << this->get_name() << " has " << this->get_energy_points() << " energy point and " << this->get_hit_points() << " hit points" << std::endl;
+}
 
 ScavTrap::~ScavTrap()
 {

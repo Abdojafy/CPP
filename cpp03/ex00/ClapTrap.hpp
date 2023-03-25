@@ -6,7 +6,7 @@
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 01:31:10 by ajafy             #+#    #+#             */
-/*   Updated: 2023/03/24 21:11:11 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/03/25 14:06:08 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ public:
 	~ClapTrap();
     std::string get_name();
 	unsigned int get_attack_damage();
+	unsigned int get_energy_points();
+	unsigned int get_hit_points();
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	ClapTrap& operator=(const ClapTrap& obj);
+	void    status();
 };
 
 #endif

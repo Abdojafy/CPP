@@ -25,6 +25,7 @@ public:
 	void attack(const std::string& target);
 	ScavTrap& operator=(const ScavTrap& obj);
     void guardGate();
+	void    status();
 };
 
 #endif
