@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 01:31:12 by ajafy             #+#    #+#             */
-/*   Updated: 2023/03/23 01:39:40 by ajafy            ###   ########.fr       */
+/*   Created: 2023/03/23 01:31:16 by ajafy             #+#    #+#             */
+/*   Updated: 2023/03/25 11:32:44 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-ClapTrap::ClapTrap(/* args */)
+int main()
 {
-	std::cout << "Constructor called" << std::endl;
-
-}
-
-
-void ClapTrap::attack(const std::string& target)
-{
-	
-}
-
-void ClapTrap::takeDamage(unsigned int amount)
-{
-	
-}
-
-void ClapTrap::beRepaired(unsigned int amount)
-{
-	
-}
-
-
-
-ClapTrap::~ClapTrap()
-{
-	std::cout << "Destructor called" << std::endl;
+    ClapTrap *clap;
+    ScavTrap Scav("abdo");
+    
+    clap = &Scav;
+    clap->attack("jafy");
+    
 }

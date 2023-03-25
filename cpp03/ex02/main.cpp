@@ -6,7 +6,18 @@
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 01:31:16 by ajafy             #+#    #+#             */
-/*   Updated: 2023/03/23 01:31:17 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/03/25 11:32:17 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "FragTrap.hpp"
+
+int main()
+{
+    ClapTrap *clap;
+    FragTrap Frag("Abdo");
+    
+    clap = &Frag;
+    clap->attack("jafy");
+    
+}
