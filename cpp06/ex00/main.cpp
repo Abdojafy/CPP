@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gghaya <gghaya@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 22:01:47 by ajafy             #+#    #+#             */
-/*   Updated: 2023/05/24 02:14:14 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/05/24 03:37:37 by gghaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_number(char *value)
 				v++;
 				if (!isdigit(value[i + 1]))
 					return (0);
-			}	
+			}
 			else if ((value[i] == 'f') && c == 0)
 				c++;
 			else
@@ -39,7 +39,7 @@ int	is_number(char *value)
 		}
 		else
 			n++;
-		i++;	
+		i++;
 	}
 	if ((c == 1 && (value[i - 1] != 'f' || v == 0)) || n == 0)
 		return (0);
@@ -62,13 +62,28 @@ int is_char(char *value)
 	return (1);
 }
 
+int is_pseudo(char *value)
+{
+	std::string str;
+	std::string nan = "nan";
+	std::string nanf = "nanf";
+	str = value;
+
+
+	if(str == nan || str.compare("+inf") || str.compare("-inf"))
+		return (1);
+	else if(str == nanf || str.compare("+inff") || str.compare("-inff"))
+		return (2);
+	else
+		return (0);
+}
+
 int main(int ac, char **av)
 {
 	// ScalarConverter::setValue("4");
 	// ScalarConverter::convert("int");
 	// std::cout << ScalarConverter::getValue() << std::endl;
 
-	// std::string str;
 	// char v_char;
 	// int v_int;
 	// double v_double;
@@ -84,15 +99,17 @@ int main(int ac, char **av)
 			std::cout << "number double" << std::endl;
 		else
 		{
-			if (is_char(av[1]))
-				std::cout << "is char" << std::endl;
-			else
-				std::cout << "no" << std::endl;
+			if(is_pseudo(av[1]) == 1)
+				std::cout << "pseudo double" << std::endl;
+			if(is_pseudo(av[1]) == 2)
+				std::cout << "pseudo float" << std::endl;
+			// else if (is_char(av[1]))
+			// 	std::cout << "is char" << std::endl;
+			// else
+			// 	std::cout << "no" << std::endl;
 		}
-			
-		// str = av[1];
-		
-		
+
+
 	}
-	
+
 }
