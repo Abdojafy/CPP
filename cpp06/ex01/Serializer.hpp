@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 22:01:47 by ajafy             #+#    #+#             */
-/*   Updated: 2023/05/27 06:06:40 by ajafy            ###   ########.fr       */
+/*   Created: 2023/05/28 00:06:22 by ajafy             #+#    #+#             */
+/*   Updated: 2023/05/28 00:53:50 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ScalarConverter.hpp"
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
+#include<string>
+#include<iostream>
+#include<sstream>
+#include"Data.hpp"
 
-int main(int ac, char **av)
+class Serializer
 {
-	if (ac != 2)
-		std::cout << "Veuillez entrer un seul argument." << std::endl;
-	else
-	{
-		std::string str = av[1];
-		ScalarConverter::convert(str);
-	}
-}
+	private:
+		Serializer();
+		Serializer(const Serializer &obj);
+		Serializer& operator=(const Serializer& obj);
+		~Serializer();
+	public :
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+};
+
+#endif

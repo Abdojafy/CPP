@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 22:01:47 by ajafy             #+#    #+#             */
-/*   Updated: 2023/05/27 06:06:40 by ajafy            ###   ########.fr       */
+/*   Created: 2023/05/28 00:56:28 by ajafy             #+#    #+#             */
+/*   Updated: 2023/05/28 00:59:50 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ScalarConverter.hpp"
+#ifndef C_HPP
+#define C_HPP
 
+#include "Base.hpp"
 
-int main(int ac, char **av)
+class C:public Base
 {
-	if (ac != 2)
-		std::cout << "Veuillez entrer un seul argument." << std::endl;
-	else
-	{
-		std::string str = av[1];
-		ScalarConverter::convert(str);
-	}
-}
+	
+};
+
+#endif
