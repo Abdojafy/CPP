@@ -6,7 +6,7 @@
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 22:01:52 by ajafy             #+#    #+#             */
-/*   Updated: 2023/05/28 04:03:30 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/05/28 04:29:50 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ float	ScalarConverter::to_float(std::string str, int *flag)
 	return (value);
 }
 
-double	ScalarConverter::to_double(std::string str,int *flag)
+double	ScalarConverter::to_double(std::string str, int *flag)
 {
 	std::stringstream ss(str);
 	double value;
