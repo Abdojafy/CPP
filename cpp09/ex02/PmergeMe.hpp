@@ -6,7 +6,7 @@
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:27:33 by ajafy             #+#    #+#             */
-/*   Updated: 2023/06/18 15:06:09 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:12:29 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ public:
 	void	get_index_deq(size_t size);
 	void	merge_data_vec(std::vector<int> &main_chaine, std::vector<int> &append_chaine);
 	void	merge_data_deq(std::deque<int> &main_chaine, std::deque<int> &append_chaine);
-	// bool	sort_pair(const std::pair<int, int> &it_a, const std::pair<int, int> &it_b);
+	bool	is_sorted();
 };
 
 #endif

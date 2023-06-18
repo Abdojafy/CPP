@@ -6,7 +6,7 @@
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:01:42 by ajafy             #+#    #+#             */
-/*   Updated: 2023/06/18 16:32:52 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/06/18 17:36:45 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool BitcoinExchange::is_digit(std::string num, bool value, std::string line)
 		i++;
 	}
 	if (v > 1)
-		return (0);
+		return (std::cout << "Error: bad input => " << line << std::endl, 0);
 	return (1);
 }
 
@@ -124,8 +124,9 @@ void BitcoinExchange::parse_line(std::string &line)
 	if (!check_value(value_line, value, line))
 		return ;
 	exchange = value * Bitcoin_value(date);
-	std::cout << date << " => " << value << " = " << exchange << std::endl;
+	std::cout << std::fixed << std::setprecision(4) << date << " => " << value << " = " << exchange << std::endl;
 }
+
 
 void BitcoinExchange::read_file()
 {
@@ -178,8 +179,8 @@ BitcoinExchange::BitcoinExchange(std::string arg)
 		if (std::getline(file, line))
 		{
 			erase_white_spaces(line);
-			if (strcmp(line.c_str(), "date | value"))
-				std::cout << "Error: Bad format" << std::endl;
+			if (strcmp(line.c_str(), "date|value") && !line.empty())
+				parse_line(line);
 			while (std::getline(file, line))
 			{
 				erase_white_spaces(line);

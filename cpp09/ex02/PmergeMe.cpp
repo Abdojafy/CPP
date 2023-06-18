@@ -6,7 +6,7 @@
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:27:57 by ajafy             #+#    #+#             */
-/*   Updated: 2023/06/18 16:26:21 by ajafy            ###   ########.fr       */
+/*   Updated: 2023/06/18 18:17:10 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 PmergeMe::PmergeMe()
 {
 	throw std::invalid_argument("Arguments !");
+}
+
+bool PmergeMe::is_sorted() {
+    for (size_t i = 0; i < vec.size() - 1; ++i) {
+        if (vec[i] > vec[i + 1]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 bool	compare_pair(const std::pair<int, int> &it_a, const std::pair<int, int> &it_b)
@@ -198,7 +207,7 @@ void	PmergeMe::merge()
 	for(size_t i = 0; i < size; i++)
 		std::cout << vec[i] << " ";
 	std::cout << std::endl;
-	
+		
 	clock_t start_vec = std::clock();
 	merge_insert_sort_vec();
 	clock_t end_vec = std::clock() - start_vec;
@@ -213,10 +222,10 @@ void	PmergeMe::merge()
 	std::cout << std::endl;
 
 	std::cout << "Time to process a range of " ;
-	std::cout << size << " elements with std::[vector] : " << (float)end_vec * 1000 / CLOCKS_PER_SEC << " us" << std::endl;
+	std::cout << size << " elements with std::[vector] : " << (float)end_vec / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 	
 	std::cout << "Time to process a range of " ;
-	std::cout << size << " elements with std::[deque] : " << (float)end_deq * 1000 / CLOCKS_PER_SEC << " us" << std::endl;
+	std::cout << size << " elements with std::[deque] : " << (float)end_deq / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 	
 }
 
@@ -257,10 +266,15 @@ void	PmergeMe::parse(char **arg)
 		i++;
 	}
 	size = vec.size();
-	if (size == 0)
+	if (size <= 1)
 	{
 		std::cout << "Error" << std::endl;
 		exit (1);
+	}
+	if (is_sorted())
+	{
+		std::cout << "Already sorted" << std::endl;
+		exit(1);
 	}
 }
 
@@ -274,6 +288,7 @@ PmergeMe::PmergeMe(char **av)
 	}
 	parse(arg);
 	merge();
+	// std::cout << std::boolalpha << is_sorted() << std::endl;
 }
 
 PmergeMe::PmergeMe(const PmergeMe& obj)
