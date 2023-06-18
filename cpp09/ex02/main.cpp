@@ -5,24 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 18:00:19 by ajafy             #+#    #+#             */
-/*   Updated: 2023/06/14 11:37:21 by ajafy            ###   ########.fr       */
+/*   Created: 2023/06/15 11:28:46 by ajafy             #+#    #+#             */
+/*   Updated: 2023/06/15 15:00:25 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include"BitcoinExchange.hpp"
+#include"PmergeMe.hpp"
 int main(int ac, char **av)
 {
 	try
 	{
-		if (ac != 2)
-			std::cerr << "Error: could not open file." << std::endl;
+		if (ac > 1)
+			PmergeMe r(&av[1]);
 		else
-		{
-			BitcoinExchange b(av[1]);
-		}
-		return 0;
+			return (std::cout << "Erreur : Veuillez entrer des arguments !" << std::endl, 1);
 	}
 	catch(const std::exception& e)
 	{

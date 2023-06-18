@@ -1,48 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 18:00:56 by ajafy             #+#    #+#             */
-/*   Updated: 2023/06/14 14:24:48 by ajafy            ###   ########.fr       */
+/*   Created: 2023/06/14 13:52:53 by ajafy             #+#    #+#             */
+/*   Updated: 2023/06/15 10:38:02 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef BITCOINEXCHANGE_HPP
-#define BITCOINEXCHANGE_HPP
+
+#ifndef RPN_HPP
+#define RPN_HPP
 
 #include<algorithm>
 #include<iterator>
 #include<iostream>
 #include<string>
-#include<map>
+#include<stack>
 #include<cstdlib>
 #include<fstream>
 #include <sstream>
 #include <ctime>
 
-class BitcoinExchange
+class RPN
 {
 private:
-	std::map<std::string, double> 	data;
-	std::string						file_arg;
+	std::stack<int> stack;
+	std::string		arg;
 public:
-	BitcoinExchange();
-	BitcoinExchange(std::string arg);
-	BitcoinExchange(const BitcoinExchange& obj);
-	BitcoinExchange& operator=(const BitcoinExchange& obj);
-	~BitcoinExchange();
+	RPN();
+	RPN(std::string arg);
+	RPN(const RPN& obj);
+	RPN& operator=(const RPN& obj);
+	~RPN();
 	
-	void	read_file();
+	void	rpn(std::string arg);
+	void	operation(char token);
 	void	erase_white_spaces(std::string &line);
-	void	parse_line(std::string &line);
-	bool	check_date(std::string &date, std::string line);
-	bool	is_digit(std::string num, bool value, std::string line);
-	bool	check_value(std::string value_line, double &value, std::string line);
-	double	Bitcoin_value(std::string &date);
 };
 
 #endif

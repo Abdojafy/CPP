@@ -5,24 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajafy <ajafy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 18:00:19 by ajafy             #+#    #+#             */
-/*   Updated: 2023/06/14 11:37:21 by ajafy            ###   ########.fr       */
+/*   Created: 2023/06/14 13:52:34 by ajafy             #+#    #+#             */
+/*   Updated: 2023/06/14 14:35:35 by ajafy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include"BitcoinExchange.hpp"
+#include"RPN.hpp"
 int main(int ac, char **av)
 {
 	try
 	{
 		if (ac != 2)
-			std::cerr << "Error: could not open file." << std::endl;
-		else
-		{
-			BitcoinExchange b(av[1]);
-		}
-		return 0;
+			return (std::cout << "Erreur : Veuillez entrer un seul argument" << std::endl, 1);
+		RPN r(av[1]);
 	}
 	catch(const std::exception& e)
 	{
